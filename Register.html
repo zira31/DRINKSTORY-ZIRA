@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="Register.css" />
+  <title>Register - Drinkstory</title>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-section">
+      <img src="DRINKSTORY (2).png" alt="Drinkstory Logo" class="logo" />
+      <h1>DRINKSTORY</h1>
+      <p class="subtitle">COFFEE SHOP</p>
+    </div>
+
+    <div class="register-box">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Value" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Value" />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Value" />
+
+      <button class="register-btn" id="registerBtn">Register</button>
+
+      <p class="signin-link">Already have an account? <a href="login.html">Sign In</a></p>
+    </div>
+
+    <img src="coffee-deco.png" alt="Coffee Decoration" class="decor" />
+  </div>
+
+  <script>
+    document.getElementById('registerBtn').addEventListener('click', function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (name && email && password) {
+        fetch('register.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email, password })
+        })
+        .then(async response => {
+          const contentType = response.headers.get('Content-Type');
+          const text = await response.text();
+
+          if (!response.ok) {
+            let message = 'Registration failed';
+            if (contentType && contentType.includes('application/json')) {
+              try {
+                const json = JSON.parse(text);
+                message = json.error || message;
+              } catch (e) {
+                message = 'Invalid JSON response';
+              }
+            } else {
+              message = text;
+            }
+            throw new Error(message);
+          }
+
+          const data = JSON.parse(text);
+          alert(data.message || 'Registration successful!');
+          window.location.href = 'login.html';
+        })
+        .catch(error => {
+          alert('Registration failed: ' + error.message);
+        });
+      } else {
+        alert('Please fill in all fields');
+      }
+    });
+  </script>
+</body>
+</html>
