@@ -1,0 +1,6 @@
+[
+    {
+        "name": "Kopi Gula Palem",
+        "price": "15000"
+    }
+]
