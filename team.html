@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tentang Kami</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7U6V95HgYzM6qlI94Ey5C6uXzj5nQTTXB5Eo7osFqRrYrPOYVkXUtz9xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    .header {
+      background-color: #f5b800;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 30px;
+      gap: 20px;
+      padding-bottom: 80px; /* ruang untuk bottom nav */
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 250px;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 3px solid #f5b800;
+    }
+
+    .card h3 {
+      margin: 0 0 5px;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 15px;
+      background: #f5b800;
+      color: white;
+      margin-top: 40px;
+    }
+
+    /* Bottom Navigation */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      border-top: 1px solid #ccc;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .bottom-nav a {
+      color: #333;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .bottom-nav img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .bottom-nav i {
+      font-size: 22px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  Our Team
+</div>
+
+<div class="team-container">
+  <div class="card">
+    <img src="annisa.jpeg" alt="Ica">
+    <h3>Annisa Nurullaili Hidayatul Husna</h3>
+    <p>20240050112</p>
+  </div>
+  <div class="card">
+    <img src="alia.jpeg" alt="Budi">
+    <h3>Alia Maharani</h3>
+    <p>20240050045</p>
+  </div>
+  <div class="card">
+    <img src="zulfa.jpeg" alt="Siti">
+    <h3>Zulpa Nurul Pajrin</h3>
+    <p>20240050048</p>
+  </div>
+  <div class="card">
+    <img src="zira.jpeg" alt="Siti">
+    <h3>Nurzira Oriza</h3>
+    <p>20240050049</p>
+  </div>
+</div>
+
+<!-- Bottom Nav -->
+<nav class="bottom-nav">
+    <a href="menu.html">
+    <img src="https://img.icons8.com/?size=100&id=84005&format=png&color=000000" alt="Team"/>
+  </a>
+  <a href="keranjang.php">
+    <img src="https://img.icons8.com/?size=100&id=KnvZ8ri9n0eB&format=png&color=000000" alt="Cart"/>
+  </a>
+  <a href="team.html">
+    <img src="https://img.icons8.com/?size=100&id=14313&format=png&color=000000" alt="Team"/>
+  </a>
+    <a href="profile.html">
+    <img src="https://img.icons8.com/?size=100&id=2yC9SZKcXDdX&format=png&color=000000" alt="Team"/>
+  </a>
+</nav>
+
+</body>
+</html>
