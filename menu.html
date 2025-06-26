@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu - Drinkstory</title>
+  <link rel="stylesheet" href="menu.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .bottom-nav a {
+      color: black;
+      text-align: center;
+      flex: 1;
+    }
+
+    .bottom-nav i {
+      font-size: 24px;
+    }
+
+    .bottom-nav img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+    }
+
+    /* Notifikasi Popup */
+    .notif-popup {
+      position: fixed;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 9999;
+    }
+
+    .notif-popup.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Tambahan popup cart styling jika diperlukan */
+    .cart-popup {
+      position: fixed;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      z-index: 2000;
+      width: 80%;
+      max-width: 400px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .cart-popup.hidden {
+      display: none;
+    }
+
+    .cart-actions {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .bayar-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search" id="searchInput" />
+      <i class="fas fa-search"></i>
+    </div>
+
+    <!-- Title -->
+    <h1 class="title">DRINKSTORY</h1>
+
+    <!-- SECTION KOPI -->
+    <div class="section">
+      <h2><span>KOPI</span></h2>
+      <div class="product-list">
+        <div class="product-card">
+          <img src="gulapalem.jpg" alt="Kopi Gula Palem" />
+          <p class="brand">Brand</p>
+          <a href="gulapalem.html" class="name">Kopi Gula Palem</a>
+          <p class="price">Rp. 15.000</p>
+          <button class="add-to-cart" data-name="Kopi Gula Palem" data-price="15000">Tambah ke Keranjang</button>
+        </div>
+        <div class="product-card">
+          <img src="rum.jpg" alt="Kopi Rum" />
+          <p class="brand">Brand</p>
+          <a href="rum.html" class="name">Kopi Rum</a>
+          <p class="price">Rp. 23.000</p>
+          <button class="add-to-cart" data-name="Kopi Rum" data-price="23000">Tambah ke Keranjang</button>
+        </div>
+        <div class="product-card">
+          <img src="regal.jpg" alt="Kopi Regal" />
+          <p class="brand">Brand</p>
+          <a href="regal.html" class="name">Kopi Regal</a>
+          <p class="price">Rp. 23.000</p>
+          <button class="add-to-cart" data-name="Kopi Regal" data-price="23000">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION NON-KOPI -->
+    <div class="section">
+      <h2><span>NON KOPI</span></h2>
+      <div class="product-list">
+        <div class="product-card">
+          <img src="regal.jpg" alt="Susu Regal" />
+          <p class="brand">Brand</p>
+          <a href="susu-regal.html" class="name">Susu Regal</a>
+          <p class="price">Rp. 20.000</p>
+          <button class="add-to-cart" data-name="Susu Regal" data-price="20000">Tambah ke Keranjang</button>
+        </div>
+        <div class="product-card">
+          <img src="dalgona.jpg" alt="Dalgona Coklat" />
+          <p class="brand">Brand</p>
+          <a href="dalgona.html" class="name">Dalgona Coklat</a>
+          <p class="price">Rp. 22.000</p>
+          <button class="add-to-cart" data-name="Dalgona Coklat" data-price="22000">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+    <!-- SECTION DESSERT -->
+    <div class="section">
+      <h2><span>DESSERT</span></h2>
+      <div class="product-list">
+        <div class="product-card">
+          <img src="Ice Cream.jpg" alt="Ice Cream" />
+          <p class="brand">Brand</p>
+          <a href="susu-regal.html" class="name">Ice Cream</a>
+          <p class="price">Rp. 15.000</p>
+          <button class="add-to-cart" data-name="Ice Cream" data-price="15000">Tambah ke Keranjang</button>
+        </div>
+        <div class="product-card">
+          <img src="Chocolate Cake.jpg" alt="Chocolate Cake" />
+          <p class="brand">Brand</p>
+          <a href="dalgona.html" class="name">Chocolate Cake</a>
+          <p class="price">Rp. 20.000</p>
+          <button class="add-to-cart" data-name="Chocolate Cake" data-price="20000">Tambah ke Keranjang</button>
+        </div>
+        <div class="product-card">
+          <img src="waffle.jpg" alt="Waffle" />
+          <p class="brand">Brand</p>
+          <a href="dalgona.html" class="name">Waffle</a>
+          <p class="price">Rp. 20.000</p>
+          <button class="add-to-cart" data-name="Waffle" data-price="20000">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Popup Cart -->
+  <div id="cart-popup" class="cart-popup hidden">
+    <h2>Keranjang Belanja</h2>
+    <ul id="cart-items"></ul>
+    <div class="cart-actions">
+      <a href="pembayaran.php" class="bayar-button">Bayar Sekarang</a>
+      <button onclick="closeCart()">Tutup</button>
+    </div>
+  </div>
+
+  <!-- Notifikasi -->
+  <div id="notification" class="notif-popup">✅ Berhasil ditambahkan ke keranjang!</div>
+
+  <!-- Bottom Nav -->
+  <nav class="bottom-nav">
+    <a href="menu.html"><i class="fas fa-home"></i></a>
+    <a href="keranjang.php"><img src="https://img.icons8.com/?size=100&id=KnvZ8ri9n0eB&format=png&color=000000"/></a>
+    <a href="team.html"><img src="https://img.icons8.com/?size=100&id=14313&format=png&color=000000"/></a>
+    <a href="profile.html"><i class="fas fa-user"></i></a>
+  </nav>
+
+  <script>
+    // Pencarian Produk
+    const searchInput = document.getElementById('searchInput');
+    const productCards = document.querySelectorAll('.product-card');
+
+    searchInput.addEventListener('input', function () {
+      const keyword = this.value.toLowerCase();
+      productCards.forEach(card => {
+        const nameElement = card.querySelector('.name');
+        if (!nameElement) return;
+        const nameText = nameElement.textContent.toLowerCase();
+        card.style.display = nameText.includes(keyword) ? 'block' : 'none';
+      });
+    });
+
+    // Update Keranjang Popup
+    function updateCartPopup() {
+      fetch('get_cart.php')
+        .then(res => res.json())
+        .then(data => {
+          const cartItems = document.getElementById('cart-items');
+          cartItems.innerHTML = '';
+          if (!data.length) {
+            cartItems.innerHTML = '<li>Keranjang kosong</li>';
+          } else {
+            data.forEach(item => {
+              const li = document.createElement('li');
+              li.innerHTML = `${item.item_name} - Rp ${item.item_price.toLocaleString('id-ID')}`;
+              cartItems.appendChild(li);
+            });
+          }
+          document.getElementById('cart-popup').classList.remove('hidden');
+        })
+        .catch(err => {
+          console.error('Gagal memuat keranjang:', err);
+        });
+    }
+
+    // Tambah ke Keranjang
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+      button.addEventListener('click', () => {
+        const name = button.getAttribute('data-name');
+        const price = button.getAttribute('data-price');
+
+        fetch('tambah_ke_keranjang.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, price })
+        })
+        .then(res => res.json())
+        .then(data => {
+          if (data.status === 'success') {
+            updateCartPopup();
+            showNotification();
+          } else {
+            alert('Gagal menambahkan ke keranjang');
+          }
+        })
+        .catch(err => {
+          console.error('Error:', err);
+        });
+      });
+    });
+
+    // Tombol Bayar
+    const bayarButton = document.querySelector('.bayar-button');
+    if (bayarButton) {
+      bayarButton.addEventListener('click', function (e) {
+        e.preventDefault();
+        fetch('get_cart.php')
+          .then(res => res.json())
+          .then(data => {
+            if (!data.length) {
+              alert("Keranjang kosong. Silakan tambahkan produk terlebih dahulu.");
+            } else {
+              window.location.href = 'pembayaran.php';
+            }
+          })
+          .catch(err => {
+            console.error('Gagal cek keranjang:', err);
+          });
+      });
+    }
+
+    // Tombol Tutup Cart
+    function closeCart() {
+      document.getElementById('cart-popup').classList.add('hidden');
+    }
+
+    // Notifikasi Berhasil
+    function showNotification() {
+      const notif = document.getElementById('notification');
+      notif.classList.add('show');
+      setTimeout(() => {
+        notif.classList.remove('show');
+      }, 1500);
+    }
+  </script>
+</body>
+</html>
