@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f5b800;
+}
+
+.container {
+  max-width: 414px;
+  margin: auto;
+  background-color: #f5b800;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.header {
+  background-color: white;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back {
+  text-decoration: none;
+  font-size: 24px;
+  color: black;
+}
+
+.logo-section {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.logo-section .logo {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.logo-section h2 {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.items-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px 16px;
+  gap: 12px;
+}
+
+.item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.desc {
+  flex: 1;
+  font-size: 13px;
+}
+
+.price {
+  white-space: nowrap;
+  font-weight: bold;
+  font-size: 14px;
+  padding-top: 4px;
+}
+
+.status {
+  background-color: #444;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 12px;
+  margin: 20px auto;
+  border-radius: 10px;
+  width: 70%;
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.footer-img {
+  width: 100%;
+  margin-top: auto;
+}
